@@ -22,16 +22,35 @@ repositories {
 }
 
 dependencies {
+    // Thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // JUnit
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+
+    // AssertJ
+    testImplementation 'org.assertj:assertj-core:3.26.0'
+
+    // Slf4j
+    implementation 'org.slf4j:slf4j-api:2.0.13'
+
+    // Logback
+    implementation 'ch.qos.logback:logback-core:1.5.6'
+    testImplementation 'ch.qos.logback:logback-classic:1.5.6'
+
     // Spring AOP
     implementation 'org.springframework.boot:spring-boot-starter-aop'
 
     // Spring Framework
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 
     // MyBatis
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'

@@ -1,10 +1,39 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+
 spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+  devtools:
+    livereload:
+      enabled: true
+    remote:
+      restart:
+        enabled: true
   h2:
     console:
-      enable: true
+      enabled: true
       path: /test
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:tcp://localhost/~/test
     username: pc
     password: 2024
+
+# MyBatis 설정
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+  type-aliases-package: kr.co.polycube.backendtest.domain.user.dto,
+                        kr.co.polycube.backendtest.domain.lotto.dto,
+                        kr.co.polycube.backendtest.domain.winner.dto,
