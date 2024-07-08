@@ -22,10 +22,23 @@ repositories {
 }
 
 dependencies {
+    // Spring AOP
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+    // Spring Framework
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // MyBatis
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+    testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+
+    // H2 DB
+    runtimeOnly 'com.h2database:h2'
 }
 
 tasks.named('test') {
