@@ -25,7 +25,7 @@ class LottoDaoTest {
     private LottoDao lottoDao;
 
     /**
-     * 로또 번호 생성 테스트 메소드
+     * Lotto 당첨 번호 생성 DAO 테스트 메소드
      */
     @Test
     void generateLottoNumbersTest() {

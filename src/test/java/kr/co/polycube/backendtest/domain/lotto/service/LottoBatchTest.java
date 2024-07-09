@@ -9,6 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Lotto Batch Test
+ *
+ * @author 김종원
+ * @version 1.0
+ * @since 24. 7. 9. (화)
+ */
 @SpringBootTest
 @Slf4j
 class LottoBatchTest {
@@ -16,10 +23,15 @@ class LottoBatchTest {
     @Autowired
     private LottoBatch lottoBatch;
 
+    /**
+     * 로또 등수 매기기 자동 실행 테스트 메소드
+     */
     @Test
     @Transactional
     void checkWinnersTest() {
+        // given
+        // when
         lottoBatch.checkWinners();
-        // 검증 로직 추가
+        // then
     }
 }

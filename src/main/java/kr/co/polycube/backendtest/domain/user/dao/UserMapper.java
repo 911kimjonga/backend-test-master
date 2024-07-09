@@ -4,7 +4,7 @@ import kr.co.polycube.backendtest.domain.user.dto.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * User DAO 인터페이스
+ * User 매퍼 인터페이스
  *
  * @author 김종원
  * @version 1.0

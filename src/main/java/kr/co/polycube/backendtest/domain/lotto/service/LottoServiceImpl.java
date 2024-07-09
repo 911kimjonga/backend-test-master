@@ -19,7 +19,7 @@ public class LottoServiceImpl implements LottoService {
     private final LottoDao lottoDao;
 
     /**
-     * Lotto 생성 구현 메소드
+     * Lotto 당첨 번호 생성 구현 메소드
      * 
      * @return Lotto 객체
      */

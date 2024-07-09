@@ -18,7 +18,7 @@ import java.util.Random;
 public class LottoDao {
 
     /**
-     * Lotto 번호 생성
+     * Lotto 당첨 번호 생성
      * 
      * @return 생성된 Lotto 객체
      */

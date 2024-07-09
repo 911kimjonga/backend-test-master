@@ -12,7 +12,7 @@ import kr.co.polycube.backendtest.domain.lotto.dto.Lotto;
 public interface LottoService {
 
     /**
-     * Lotto 생성
+     * Lotto 당첨 번호 생성
      *
      * @return Lotto 객체
      */
