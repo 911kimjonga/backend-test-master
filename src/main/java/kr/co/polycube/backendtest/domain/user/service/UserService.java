@@ -14,10 +14,9 @@ public interface UserService {
     /**
      * User 등록
      *
-     * @param user User 객체
-     * @return User ID
+     * @param name User 이름
      */
-    public String registerUser(User user);
+    public long registerUser(String name);
 
     /**
      * User 조회
@@ -25,7 +24,7 @@ public interface UserService {
      * @param id User ID
      * @return User 객체
      */
-    public User readUser(String id);
+    public User readUser(long id);
 
     /**
      * User 수정

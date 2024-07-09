@@ -21,13 +21,12 @@ public class UserServiceImpl implements UserService {
     /**
      * User 등록 구현 메소드
      *
-     * @param user User 객체
-     * @return User ID
+     * @param name User 이름
      */
     @Override
-    public String registerUser(User user) {
-        userDao.create(user);
-        return user.getId();
+    public long registerUser(String name) {
+        userDao.create(name);
+        return userDao.readResentUser();
     }
 
     /**
@@ -37,8 +36,8 @@ public class UserServiceImpl implements UserService {
      * @return User 객체
      */
     @Override
-    public User readUser(String id) {
-        return userDao.read(id);
+    public User readUser(long id) {
+        return userDao.readById(id);
     }
 
     /**
@@ -50,7 +49,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User editUser(User user) {
         userDao.update(user);
-        return userDao.read(user.getId());
+        return userDao.readById(user.getId());
     }
 
 }

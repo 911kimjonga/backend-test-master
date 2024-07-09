@@ -23,16 +23,14 @@ public class UserController {
     /**
      * User 등록 요청 처리
      * 
-     * @param user User 객체
+     * @param name 등록 User 이름
      * @param model 모델 객체
      * @return 반환 값
      */
     @PostMapping("")
     @ResponseBody
-    public String register(@ModelAttribute User user, Model model) {
-        userService.registerUser(user);
-
-        return user.getId();
+    public long register(@RequestParam String name, Model model) {
+        return userService.registerUser(name);
     }
 
     /**
@@ -44,7 +42,7 @@ public class UserController {
      */
     @GetMapping("/{id}")
     @ResponseBody
-    public User check(@PathVariable String id, Model model) {
+    public User check(@PathVariable long id, Model model) {
         return userService.readUser(id);
     }
 
@@ -58,7 +56,7 @@ public class UserController {
      */
     @PostMapping("/{id}")
     @ResponseBody
-    public User edit(@PathVariable String id, @RequestParam String name, Model model) {
+    public User edit(@PathVariable long id, @RequestParam String name, Model model) {
 
         User user = User.builder()
                 .id(id)

@@ -17,9 +17,16 @@ public interface UserDao {
     /**
      * User 등록
      *
-     * @param user User 객체
+     * @param name User 이름
      */
-    public void create(User user);
+    public void create(String name);
+
+    /**
+     * 가장 최근 등록한 User ID 조회
+     *
+     * @return User ID
+     */
+    public long readResentUser();
 
     /**
      * User 조회
@@ -27,7 +34,7 @@ public interface UserDao {
      * @param id User ID
      * @return User 객체
      */
-    public User read(String id);
+    public User readById(long id);
 
     /**
      * User 수정

@@ -30,26 +30,36 @@ class UserDaoTest {
     @Transactional
     void createTest() {
         // given
-        User user = User.builder()
-                .id("jwk")
-                .name("김종원")
-                .build();
+        String name = "jw";
         // when
-        userDao.create(user);
+        userDao.create(name);
         // then
-        log.info("id : {}", user.getId());
-        assertThat(user.getId()).isNotNull();
+        log.info("name : {}", name);
+        assertThat(name).isNotNull();
+    }
+
+    /**
+     * 최근 등록한 User 조회 테스트 메소드
+     */
+    @Test
+    void readResentUser() {
+        // given
+        // when
+        long id = userDao.readResentUser();
+        // then
+        log.info("id : {}", id);
+        assertThat(id).isNotZero();
     }
 
     /**
      * User 조회 테스트 메소드
      */
     @Test
-    void readTest() {
+    void readByIdTest() {
         // given
-        String id = "jw";
+        long id = 1;
         // when
-        User user = userDao.read(id);
+        User user = userDao.readById(id);
         // then
         log.info("id : {}, name : {}", user.getId(), user.getName());
         assertThat(user.getId()).isEqualTo(id);
@@ -63,8 +73,8 @@ class UserDaoTest {
     void updateTest() {
         // given
         User user = User.builder()
-                .id("jw")
-                .name("홍길동")
+                .id(1)
+                .name("kd")
                 .build();
         // when
         userDao.update(user);

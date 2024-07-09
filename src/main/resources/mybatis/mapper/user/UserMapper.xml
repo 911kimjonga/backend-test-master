@@ -4,12 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.co.polycube.backendtest.domain.user.dao.UserDao">
-    <insert id="create" parameterType="User">
-        INSERT INTO "USER" (ID, NAME)
-        VALUES (#{id}, #{name})
+    <insert id="create" parameterType="String">
+        INSERT INTO "USER" (NAME)
+        VALUES (#{name})
     </insert>
 
-    <select id="read" parameterType="string" resultType="User">
+    <select id="readResentUser" resultType="long">
+        SELECT ID
+        FROM "USER"
+        ORDER BY id DESC LIMIT 1;
+    </select>
+
+    <select id="readById" parameterType="long" resultType="User">
         SELECT ID, NAME
         FROM "USER"
         WHERE ID = #{id}
@@ -18,7 +24,6 @@
     <update id="update" parameterType="User">
         UPDATE "USER"
         <set>
-            <if test="id != null and id != ''">ID = #{id},</if>
             <if test="name != null and name != ''">NAME = #{name},</if>
         </set>
         WHERE ID = #{id}

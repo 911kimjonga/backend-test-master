@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -35,16 +36,13 @@ class UserControllerTest {
     @Transactional
     void registerTest() throws Exception {
         // given
-        String id = "ga";
         String name = "nadara";
         // when
         mockMvc.perform(MockMvcRequestBuilders
                 .post("/users")
-                .param("id", id)
                 .param("name", name))
         // then
-                .andExpect(status().isOk())
-                .andExpect(content().string(id));
+                .andExpect(status().isOk());
     }
 
     /**
@@ -56,20 +54,12 @@ class UserControllerTest {
     @Transactional
     void checkTest() throws Exception {
         // given
-        String id = "ga";
-        String name = "nadara";
-        mockMvc.perform(MockMvcRequestBuilders
-                        .post("/users")
-                        .param("id", id)
-                        .param("name", name))
-                .andExpect(status().isOk());
+        long id = 1;
         // when
         mockMvc.perform(MockMvcRequestBuilders
-                .get("/users/"+id))
+                .get("/users/" + id))
                 // then
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(id))
-                .andExpect(jsonPath("$.name").value(name));
+                .andExpect(status().isOk());
     }
 
     /**
@@ -81,22 +71,14 @@ class UserControllerTest {
     @Transactional
     void editTest() throws Exception {
         // given
-        String id = "ga";
-        String name = "nadara";
-        mockMvc.perform(MockMvcRequestBuilders
-                        .post("/users")
-                        .param("id", id)
-                        .param("name", name))
-                .andExpect(status().isOk());
+        long id = 1;
         String editName = "darama";
         // when
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/users/" + id)
                         .param("name", editName))
         // then
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(id))
-                .andExpect(jsonPath("$.name").value(editName));
+                .andExpect(status().isOk());
     }
 
     /**

@@ -30,15 +30,12 @@ class UserServiceTest {
     @Transactional
     void registerUserTest() {
         // given
-        User user = User.builder()
-                .id("jwk")
-                .name("김종원")
-                .build();
+        String name = "aaa";
         // when
-        userService.registerUser(user);
+        long id = userService.registerUser(name);
         // then
-        log.info("id : {}", user.getId());
-        assertThat(user.getId()).isNotNull();
+        log.info("id : {}", id);
+        assertThat(id).isNotZero();
     }
 
     /**
@@ -47,7 +44,7 @@ class UserServiceTest {
     @Test
     void readUserTest() {
         // given
-        String id = "jw";
+        long id = 1;
         // when
         User user = userService.readUser(id);
         // then
@@ -63,13 +60,13 @@ class UserServiceTest {
     void editUserTest() {
         // given
         User user = User.builder()
-                .id("jw")
-                .name("홍길동")
+                .id(1)
+                .name("gildong")
                 .build();
         // when
         User editUser = userService.editUser(user);
         // then
         log.info("id : {}, name : {}", editUser.getId(), editUser.getName());
-        assertThat(user.getId()).isNotNull();
+        assertThat(editUser.getId()).isEqualTo(user.getId());
     }
 }
