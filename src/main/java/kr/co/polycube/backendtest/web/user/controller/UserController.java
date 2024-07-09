@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * User 관련 요청 컨트롤러
  *
@@ -22,50 +25,51 @@ public class UserController {
 
     /**
      * User 등록 요청 처리
-     * 
-     * @param name 등록 User 이름
+     *
+     * @param name 등록 이름
      * @param model 모델 객체
-     * @return 반환 값
+     * @return 반환 객체
      */
     @PostMapping("")
     @ResponseBody
-    public long register(@RequestParam String name, Model model) {
-        System.out.println(name);
-        System.out.println(userService.registerUser(name));
-        return userService.registerUser(name);
+    public Map<String, Object> register (@RequestParam("name") String name, Model model) {
+        long id = userService.registerUser(name);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("id", id);
+
+        return response;
     }
 
     /**
      * User 조회 요청 처리
      * 
-     * @param id 조회할 User ID
+     * @param id 조회할 ID
      * @param model 모델 객체
-     * @return 반환 값
+     * @return 반환 객체
      */
     @GetMapping("/{id}")
     @ResponseBody
-    public User check(@PathVariable long id, Model model) {
-        System.out.println(id);
+    public User check (@PathVariable("id") long id, Model model) {
+
         return userService.readUser(id);
     }
 
     /**
-     * User 정보 수정 요청 처리
-     * 
-     * @param id 수정할 User ID
-     * @param name 수정 후 User 이름
+     * User 수정 요청 처리
+     *
+     * @param id 수정할 ID
+     * @param name 수정 후 이름
      * @param model 모델 객체
-     * @return 반환 값
+     * @return 반환 객체
      */
     @PostMapping("/{id}")
     @ResponseBody
-    public User edit(@PathVariable long id, @RequestParam String name, Model model) {
+    public User edit (@PathVariable("id") long id, @RequestParam("name") String name, Model model) {
         User user = User.builder()
                 .id(id)
                 .name(name)
                 .build();
-
-        System.out.println(user);
 
         return userService.editUser(user);
     }

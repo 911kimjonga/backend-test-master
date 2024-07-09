@@ -26,7 +26,7 @@ public class LottoController {
      * Lotto 생성 요청 처리
      * 
      * @param model 모델 객체
-     * @return 반환 값
+     * @return 반환 객체
      */
     @PostMapping("")
     public Lotto draw(Model model) {

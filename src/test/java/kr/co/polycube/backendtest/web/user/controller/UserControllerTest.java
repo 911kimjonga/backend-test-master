@@ -10,15 +10,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * User Controller Test
- *
- * @author VJ특공대 김종원
- * @version 1.0
- * @since 24. 7. 9. (화)
- */
 @SpringBootTest
 @AutoConfigureMockMvc
 @Slf4j
@@ -28,43 +22,45 @@ class UserControllerTest {
     private MockMvc mockMvc;
 
     /**
-     * User 등록 컨트롤러 테스트 메소드
-     * 
+     * User 등록 요청 테스트 메소드
+     *
      * @throws Exception 예외
      */
     @Test
     @Transactional
     void registerTest() throws Exception {
         // given
-        String name = "nadara";
+        String name = "kim";
         // when
         mockMvc.perform(MockMvcRequestBuilders
-                .post("/users")
-                .param("name", name))
+                        .post("/users")
+                        .param("name", name))
         // then
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber());
     }
 
     /**
-     * User 조회 컨트롤러 테스트 메소드
-     * 
+     * User 조회 요청 테스트 메소드
+     *
      * @throws Exception 예외
      */
     @Test
-    @Transactional
     void checkTest() throws Exception {
         // given
         long id = 1;
         // when
         mockMvc.perform(MockMvcRequestBuilders
-                .get("/users/" + id))
-                // then
-                .andExpect(status().isOk());
+                        .get("/users/" + id))
+        // then
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").isNotEmpty());
     }
 
     /**
-     * User 수정 컨트롤러 테스트 메소드
-     * 
+     * User 수정 요청 테스트 메소드
+     *
      * @throws Exception 예외
      */
     @Test
@@ -72,38 +68,30 @@ class UserControllerTest {
     void editTest() throws Exception {
         // given
         long id = 1;
-        String editName = "darama";
+        String name = "kim";
         // when
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/users/" + id)
-                        .param("name", editName))
+                        .param("name", name))
         // then
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").isNotEmpty());
     }
 
-    /**
-     * URL 필터 테스트 메소드
-     * 
-     * @throws Exception 예외
-     */
     @Test
     @Transactional
     void filterTest() throws Exception {
         // given
-        String id = "ga";
-        String name = "nadara";
-        mockMvc.perform(MockMvcRequestBuilders
-                        .post("/users")
-                        .param("id", id)
-                        .param("name", name))
-                .andExpect(status().isOk());
-        String editName = "test!!";
+        long id = 1;
+        String name = "test!!";
         // when
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/users/" + id)
-                        .queryParam("name", editName))
-                // then
+                        .queryParam("name", name))
+        // then
                 .andExpect(status().isForbidden())
                 .andExpect(status().reason("잘못된 URL 접근 입니다."));
     }
+
 }
