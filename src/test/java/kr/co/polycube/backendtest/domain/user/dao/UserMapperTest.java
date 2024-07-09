@@ -18,10 +18,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @SpringBootTest
 @Slf4j
-class UserDaoTest {
+class UserMapperTest {
 
     @Autowired
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     /**
      * User 등록 테스트 메소드
@@ -32,7 +32,7 @@ class UserDaoTest {
         // given
         String name = "jw";
         // when
-        userDao.create(name);
+        userMapper.create(name);
         // then
         log.info("name : {}", name);
         assertThat(name).isNotNull();
@@ -45,7 +45,7 @@ class UserDaoTest {
     void readResentUser() {
         // given
         // when
-        long id = userDao.readResentUser();
+        long id = userMapper.readResentUser();
         // then
         log.info("id : {}", id);
         assertThat(id).isNotZero();
@@ -59,7 +59,7 @@ class UserDaoTest {
         // given
         long id = 1;
         // when
-        User user = userDao.readById(id);
+        User user = userMapper.readById(id);
         // then
         log.info("id : {}, name : {}", user.getId(), user.getName());
         assertThat(user.getId()).isEqualTo(id);
@@ -77,7 +77,7 @@ class UserDaoTest {
                 .name("kd")
                 .build();
         // when
-        userDao.update(user);
+        userMapper.update(user);
         // then
         log.info("id : {}, name : {}", user.getId(), user.getName());
         assertThat(user.getId()).isNotNull();

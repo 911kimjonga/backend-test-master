@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.polycube.backendtest.domain.lotto.dao.LottoMapper">
+
+    <select id="readAll" resultType="map">
+        SELECT ID, NUMBER_1, NUMBER_2, NUMBER_3, NUMBER_4, NUMBER_5, NUMBER_6
+        FROM LOTTO
+    </select>
+
+    <select id="readById" parameterType="long" resultType="map">
+        SELECT ID, NUMBER_1, NUMBER_2, NUMBER_3, NUMBER_4, NUMBER_5, NUMBER_6
+        FROM LOTTO
+        WHERE ID = #{id}
+    </select>
+
+    <insert id="createWinner">
+        INSERT INTO WINNER (LOTTO_ID, RANK)
+        VALUES (#{lottoId}, #{rank})
+    </insert>
+
+</mapper>

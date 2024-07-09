@@ -22,8 +22,10 @@ repositories {
 }
 
 dependencies {
-    // Thymeleaf
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    // Spring Batch
+    implementation 'org.springframework.boot:spring-boot-starter-batch'
+    implementation 'org.springframework.boot:spring-boot-starter-quartz'
+    testImplementation 'org.springframework.batch:spring-batch-test'
 
     // JUnit
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'

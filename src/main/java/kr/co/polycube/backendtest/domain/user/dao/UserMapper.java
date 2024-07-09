@@ -2,7 +2,6 @@ package kr.co.polycube.backendtest.domain.user.dao;
 
 import kr.co.polycube.backendtest.domain.user.dto.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 /**
  * User DAO 인터페이스
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @since 24. 7. 8. (월)
  */
 @Mapper
-public interface UserDao {
+public interface UserMapper {
 
     /**
      * User 등록

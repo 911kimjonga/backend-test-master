@@ -8,10 +8,6 @@ server:
       force: true
 
 spring:
-  thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
-    cache: false
   devtools:
     livereload:
       enabled: true
@@ -36,4 +32,3 @@ mybatis:
     - classpath:mybatis/mapper/**/*.xml
   type-aliases-package: kr.co.polycube.backendtest.domain.user.dto,
                         kr.co.polycube.backendtest.domain.lotto.dto,
-                        kr.co.polycube.backendtest.domain.winner.dto,
