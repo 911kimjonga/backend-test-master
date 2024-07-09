@@ -11,6 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * User Dao Test
+ *
  * @author 김종원
  * @version 1.0
  * @since 24. 7. 8. (월)
@@ -22,6 +23,9 @@ class UserDaoTest {
     @Autowired
     private UserDao userDao;
 
+    /**
+     * User create 테스트 메소드
+     */
     @Test
     @Transactional
     void createTest() {
@@ -37,6 +41,9 @@ class UserDaoTest {
         assertThat(user.getId()).isNotNull();
     }
 
+    /**
+     * User read 테스트 메소드
+     */
     @Test
     void readTest() {
         // given
@@ -48,6 +55,9 @@ class UserDaoTest {
         assertThat(user.getId()).isEqualTo(id);
     }
 
+    /**
+     * User update 테스트 메소드
+     */
     @Test
     @Transactional
     void updateTest() {

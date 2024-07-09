@@ -23,6 +23,9 @@ class UserServiceTest {
     @Autowired
     private UserService userService;
 
+    /**
+     * User 등록 서비스 테스트 메소드
+     */
     @Test
     @Transactional
     void registerUserTest() {
@@ -38,6 +41,9 @@ class UserServiceTest {
         assertThat(user.getId()).isNotNull();
     }
 
+    /**
+     * User 조회 서비스 테스트 메소드
+     */
     @Test
     void readUserTest() {
         // given
@@ -49,6 +55,9 @@ class UserServiceTest {
         assertThat(user.getId()).isEqualTo(id);
     }
 
+    /**
+     * User 수정 서비스 테스트 메소드
+     */
     @Test
     @Transactional
     void editUserTest() {

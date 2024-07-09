@@ -15,14 +15,14 @@ import org.springframework.context.annotation.Configuration;
 public class FilterConfig {
 
     /**
-     * 필터 Bean 객체
+     * 필터 Bean 객체 등록
      * @return 등록 Bean 객체
      */
     @Bean
-    public FilterRegistrationBean<UsersPathFilter> specialCharacterFilter() {
-        FilterRegistrationBean<UsersPathFilter> registrationBean = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new UsersPathFilter());
-        registrationBean.addUrlPatterns("/users/**");
+    public FilterRegistrationBean<PathFilter> specialCharacterFilter() {
+        FilterRegistrationBean<PathFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(new PathFilter());
+        registrationBean.addUrlPatterns("/*");
         return registrationBean;
     }
 }

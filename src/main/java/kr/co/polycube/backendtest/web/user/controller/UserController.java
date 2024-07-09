@@ -20,11 +20,6 @@ public class UserController {
 
     private final UserService userService;
 
-//    @GetMapping("")
-//    public String registerView(Model model) {
-//        return "common/users/register";
-//    }
-
     /**
      * User 등록 요청 컨트롤러
      * 
@@ -34,7 +29,7 @@ public class UserController {
      */
     @PostMapping("")
     @ResponseBody
-    public String register(@RequestBody User user, Model model) {
+    public String register(@ModelAttribute User user, Model model) {
         userService.registerUser(user);
 
         return user.getId();
@@ -49,8 +44,7 @@ public class UserController {
      */
     @GetMapping("/{id}")
     @ResponseBody
-    public User login(@PathVariable String id, Model model) {
-        System.out.println("===============");
+    public User check(@PathVariable String id, Model model) {
         return userService.readUser(id);
     }
 
@@ -64,7 +58,7 @@ public class UserController {
      */
     @PostMapping("/{id}")
     @ResponseBody
-    public User edit(@PathVariable String id, @RequestBody String name, Model model) {
+    public User edit(@PathVariable String id, @RequestParam String name, Model model) {
 
         User user = User.builder()
                 .id(id)
