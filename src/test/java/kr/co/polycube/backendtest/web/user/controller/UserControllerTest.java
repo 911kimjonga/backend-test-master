@@ -79,6 +79,11 @@ class UserControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").isNotEmpty());
     }
 
+    /**
+     * URL 필터 적용 여부 요청 테스트
+     * 
+     * @throws Exception 예외
+     */
     @Test
     @Transactional
     void filterTest() throws Exception {
