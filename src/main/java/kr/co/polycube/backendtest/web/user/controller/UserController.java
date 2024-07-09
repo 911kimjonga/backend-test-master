@@ -30,6 +30,8 @@ public class UserController {
     @PostMapping("")
     @ResponseBody
     public long register(@RequestParam String name, Model model) {
+        System.out.println(name);
+        System.out.println(userService.registerUser(name));
         return userService.registerUser(name);
     }
 
@@ -43,6 +45,7 @@ public class UserController {
     @GetMapping("/{id}")
     @ResponseBody
     public User check(@PathVariable long id, Model model) {
+        System.out.println(id);
         return userService.readUser(id);
     }
 
@@ -57,11 +60,12 @@ public class UserController {
     @PostMapping("/{id}")
     @ResponseBody
     public User edit(@PathVariable long id, @RequestParam String name, Model model) {
-
         User user = User.builder()
                 .id(id)
                 .name(name)
                 .build();
+
+        System.out.println(user);
 
         return userService.editUser(user);
     }

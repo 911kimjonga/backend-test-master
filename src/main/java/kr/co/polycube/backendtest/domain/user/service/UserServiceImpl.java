@@ -4,6 +4,7 @@ import kr.co.polycube.backendtest.domain.user.dao.UserDao;
 import kr.co.polycube.backendtest.domain.user.dto.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * User Service 구현체
@@ -24,6 +25,7 @@ public class UserServiceImpl implements UserService {
      * @param name User 이름
      */
     @Override
+    @Transactional
     public long registerUser(String name) {
         userDao.create(name);
         return userDao.readResentUser();
@@ -47,6 +49,7 @@ public class UserServiceImpl implements UserService {
      * @return User 수정 후 객체
      */
     @Override
+    @Transactional
     public User editUser(User user) {
         userDao.update(user);
         return userDao.readById(user.getId());

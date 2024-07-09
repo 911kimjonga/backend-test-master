@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.co.polycube.backendtest.domain.user.dao.UserDao">
-    <insert id="create" parameterType="String">
+    <insert id="create" parameterType="string">
         INSERT INTO "USER" (NAME)
         VALUES (#{name})
     </insert>
@@ -12,7 +12,7 @@
     <select id="readResentUser" resultType="long">
         SELECT ID
         FROM "USER"
-        ORDER BY id DESC LIMIT 1;
+        ORDER BY id DESC LIMIT 1
     </select>
 
     <select id="readById" parameterType="long" resultType="User">
