@@ -21,7 +21,7 @@ public class UserController {
     private final UserService userService;
 
     /**
-     * User 등록 요청 컨트롤러
+     * User 등록 요청 처리
      * 
      * @param user User 객체
      * @param model 모델 객체
@@ -36,7 +36,7 @@ public class UserController {
     }
 
     /**
-     * User 조회
+     * User 조회 요청 처리
      * 
      * @param id 조회할 User ID
      * @param model 모델 객체
@@ -49,7 +49,7 @@ public class UserController {
     }
 
     /**
-     * User 정보 수정
+     * User 정보 수정 요청 처리
      * 
      * @param id 수정할 User ID
      * @param name 수정 후 User 이름

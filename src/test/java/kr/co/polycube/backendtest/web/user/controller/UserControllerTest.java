@@ -48,7 +48,7 @@ class UserControllerTest {
     }
 
     /**
-     * User 로그인 컨트롤러 테스트 메소드
+     * User 조회 컨트롤러 테스트 메소드
      * 
      * @throws Exception 예외
      */

@@ -24,7 +24,7 @@ class UserDaoTest {
     private UserDao userDao;
 
     /**
-     * User create 테스트 메소드
+     * User 등록 테스트 메소드
      */
     @Test
     @Transactional
@@ -42,7 +42,7 @@ class UserDaoTest {
     }
 
     /**
-     * User read 테스트 메소드
+     * User 조회 테스트 메소드
      */
     @Test
     void readTest() {
@@ -56,7 +56,7 @@ class UserDaoTest {
     }
 
     /**
-     * User update 테스트 메소드
+     * User 수정 테스트 메소드
      */
     @Test
     @Transactional

@@ -31,8 +31,8 @@ public interface UserDao {
 
     /**
      * User 수정
-     *
-     * @param id User ID
+     * 
+     * @param user User 객체
      */
     public void update(User user);
 
