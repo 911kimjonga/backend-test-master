@@ -33,7 +33,7 @@ public class UserController {
     @PostMapping("")
     @ResponseBody
     public Map<String, Object> register (@RequestParam("name") String name, Model model) {
-        long id = userService.registerUser(name);
+        long id = userService.registUser(name);
 
         Map<String, Object> response = new HashMap<>();
         response.put("id", id);
@@ -52,7 +52,7 @@ public class UserController {
     @ResponseBody
     public User check (@PathVariable("id") long id, Model model) {
 
-        return userService.readUser(id);
+        return userService.getUser(id);
     }
 
     /**

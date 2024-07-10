@@ -17,8 +17,8 @@ import lombok.*;
 @Builder
 public class Winner {
 
-    private int id;
-    private int lottoId;
+    private long id;
+    private long lottoId;
     private int rank;
 
 }

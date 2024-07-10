@@ -3,7 +3,7 @@ package kr.co.polycube.backendtest.domain.user.service;
 import kr.co.polycube.backendtest.domain.user.dto.User;
 
 /**
- * User Service 인터페이스
+ * User 서비스 인터페이스
  *
  * @author 김종원
  * @version 1.0
@@ -16,7 +16,7 @@ public interface UserService {
      *
      * @param name User 이름
      */
-    public long registerUser(String name);
+    public long registUser(String name);
 
     /**
      * User 조회
@@ -24,7 +24,7 @@ public interface UserService {
      * @param id User ID
      * @return User 객체
      */
-    public User readUser(long id);
+    public User getUser(long id);
 
     /**
      * User 수정

@@ -1,9 +1,10 @@
-package kr.co.polycube.backendtest.domain.lotto.service;
+package kr.co.polycube.backendtest.web.winner.controller;
 
-import kr.co.polycube.backendtest.domain.lotto.dao.LottoDao;
-import kr.co.polycube.backendtest.domain.lotto.dao.LottoMapper;
 import kr.co.polycube.backendtest.domain.lotto.dto.Lotto;
-import lombok.*;
+import kr.co.polycube.backendtest.domain.lotto.service.LottoService;
+import kr.co.polycube.backendtest.domain.winner.dto.Winner;
+import kr.co.polycube.backendtest.domain.winner.service.WinnerService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -20,10 +21,10 @@ import java.util.Map;
  */
 @Component
 @RequiredArgsConstructor
-public class LottoBatch {
+public class WinnerBatch {
 
-    private final LottoMapper lottoMapper;
-    private final LottoDao lottoDao;
+    private final LottoService lottoService;
+    private final WinnerService winnerService;
 
     /**
      * 로또 등수 매기기 자동 실행 메소드
@@ -31,30 +32,29 @@ public class LottoBatch {
     @Scheduled(cron = "0 0 0 * * SUN") // 매주 일요일 0시에 실행
     public void checkWinners() {
         // 로또 전체 조회
-        List<Map<String, Object>> lottoTable = lottoMapper.readAll();
+        List<Lotto> lottoList = lottoService.getLottoAll();
 
         // 로또 당첨 번호 조회
-        Lotto generateNumbers = lottoDao.generateNumbers();
+        Lotto generateNumbers = lottoService.generateLotto();
         List<Integer> lottoNumbers = generateNumbers.getNumbers();
 
         // 로또 전체에서 하나의 행씩 당첨번호와 비교
-        for (Map<String, Object> lotto : lottoTable) {
-            // 로또 번호 ID 추출
-            long lottoId = (Long) lotto.get("ID");
-            // 로또 번호 비교를 위한 List 화
-            List<Integer> numbers = new ArrayList<>();
-            for (int i = 1; i <= 6; i++) {
-                numbers.add((Integer) lotto.get("NUMBER_" + i));
-            }
-
-            // 로또 번호 맞은 갯수
-            int correctNumbers = countCorrect(lottoNumbers, numbers);
+        for (Lotto lotto : lottoList) {
+            // 로또 번호 맞은 갯수 비교
+            int correctNumbers = countCorrect(lottoNumbers, lotto.getNumbers());
 
             // 로또 등수
             int rank = lottoRank(correctNumbers);
 
+            // 담첨 정보 Winner 객체에 담기
+            Winner winner = Winner.builder()
+                    .lottoId(lotto.getId())
+                    .rank(rank)
+                    .build();
+            
+            // 당첨자일 경우 Winner 객체 데이터베이스에 등록
             if (rank > 0) {
-                lottoMapper.createWinner(lottoId, rank);
+                winnerService.registWinner(winner);
             }
         }
     }

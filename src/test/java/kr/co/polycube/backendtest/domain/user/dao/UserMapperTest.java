@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * User Dao Test
+ * User 매퍼 테스트
  *
  * @author 김종원
  * @version 1.0

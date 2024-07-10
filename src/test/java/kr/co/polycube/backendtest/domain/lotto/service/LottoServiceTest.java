@@ -7,11 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Lotto Service Test
+ * Lotto 서비스 테스트
  *
  * @author 김종원
  * @version 1.0
@@ -32,6 +33,27 @@ class LottoServiceTest {
         // given
         // when
         Lotto lotto = lottoService.generateLotto();
+        // then
+        log.info("lotto : {}", lotto);
+        assertThat(lotto).isNotNull();
+    }
+
+    @Test
+    void getLottoAllTest() {
+        // given
+        // when
+        List<Lotto> list = lottoService.getLottoAll();
+        // then
+        log.info("lottoList : {}", list);
+        assertThat(list).isNotNull();
+    }
+
+    @Test
+    void getLottoByIdTest() {
+        // given
+        long id = 1;
+        // when
+        Lotto lotto = lottoService.getLottoById(id);
         // then
         log.info("lotto : {}", lotto);
         assertThat(lotto).isNotNull();

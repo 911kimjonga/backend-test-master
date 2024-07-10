@@ -16,9 +16,4 @@
         WHERE ID = #{id}
     </select>
 
-    <insert id="createWinner">
-        INSERT INTO WINNER (LOTTO_ID, RANK)
-        VALUES (#{lottoId}, #{rank})
-    </insert>
-
 </mapper>

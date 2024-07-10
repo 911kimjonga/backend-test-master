@@ -1,12 +1,14 @@
 package kr.co.polycube.backendtest.web.lotto.controller;
 
-import kr.co.polycube.backendtest.domain.lotto.dto.Lotto;
 import kr.co.polycube.backendtest.domain.lotto.service.LottoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Lotto 관련 요청 컨트롤러
@@ -29,8 +31,10 @@ public class LottoController {
      * @return 반환 객체
      */
     @PostMapping("")
-    public Lotto draw(Model model) {
+    public Map<String, Object> draw(Model model) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("numbers", lottoService.generateLotto().getNumbers());
 
-        return lottoService.generateLotto();
+        return map;
     }
 }

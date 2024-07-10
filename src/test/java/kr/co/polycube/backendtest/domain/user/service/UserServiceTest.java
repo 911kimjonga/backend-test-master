@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * User Service Test
+ * User 서비스 테스트
  *
  * @author 김종원
  * @version 1.0
@@ -28,11 +28,11 @@ class UserServiceTest {
      */
     @Test
     @Transactional
-    void registerUserTest() {
+    void registUserTest() {
         // given
         String name = "aaa";
         // when
-        long id = userService.registerUser(name);
+        long id = userService.registUser(name);
         // then
         log.info("id : {}", id);
         assertThat(id).isNotZero();
@@ -42,11 +42,11 @@ class UserServiceTest {
      * User 조회 서비스 테스트 메소드
      */
     @Test
-    void readUserTest() {
+    void getUserTest() {
         // given
         long id = 1;
         // when
-        User user = userService.readUser(id);
+        User user = userService.getUser(id);
         // then
         log.info("id : {}, name : {}", user.getId(), user.getName());
         assertThat(user.getId()).isEqualTo(id);

@@ -19,6 +19,7 @@ import java.util.List;
 @Builder
 public class Lotto {
 
+    private long id;
     private List<Integer> numbers;
 
 }

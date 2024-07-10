@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Lotto 및 Winner 매퍼 인터페이스
+ * Lotto 매퍼 인터페이스
  *
  * @author 김종원
  * @version 1.0
@@ -30,13 +30,5 @@ public interface LottoMapper {
      * @return 조회된 Lotto 번호
      */
     public Map<String, Object> readById(long id);
-
-    /**
-     * 당첨시 Winner 생성
-     * 
-     * @param lottoId 당첨된 Lotto ID
-     * @param rank Lotto 당첨 등수
-     */
-    public void createWinner(@Param("lottoId") long lottoId, @Param("rank") int rank);
 
 }

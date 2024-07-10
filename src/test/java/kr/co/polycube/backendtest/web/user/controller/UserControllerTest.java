@@ -13,6 +13,13 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * User 컨트롤러 테스트
+ * 
+ * @author 김종원
+ * @version 1.0
+ * @since 24. 7. 9. (화)
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 @Slf4j

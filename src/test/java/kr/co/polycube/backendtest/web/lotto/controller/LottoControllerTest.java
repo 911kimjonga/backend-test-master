@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Lotto Controller Test
+ * Lotto 컨트롤러 테스트
  *
  * @author 김종원
  * @version 1.0

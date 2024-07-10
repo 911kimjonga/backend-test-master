@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * User Service 구현체
+ * User 서비스 구현체
  *
  * @author 김종원
  * @version 1.0
@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     @Transactional
-    public long registerUser(String name) {
+    public long registUser(String name) {
         userMapper.create(name);
         return userMapper.readResentUser();
     }
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
      * @return User 객체
      */
     @Override
-    public User readUser(long id) {
+    public User getUser(long id) {
         return userMapper.readById(id);
     }
 

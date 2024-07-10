@@ -11,7 +11,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Lotto DAO Test
+ * Lotto DAO 테스트
  *
  * @author 김종원
  * @version 1.0
