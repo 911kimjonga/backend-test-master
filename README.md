@@ -138,11 +138,10 @@ id,lotto_id,rank
 ### 추가적인 빌드 관련
 
 - Spring devtool : 원활한 개발을 위해 추가하였습니다.
-- Spring Batch : Batch 사용 위해 추가하였습니다.
-- AssertJ, Slf4j : DAO 및 서비스 테스트를 위해 추가하였습니다.
-- Logback : Log 작성을 위해 추가하였습니다.
 - Spring AOP : AOP 사용 위해 추가하였습니다.
+- Spring Batch : Batch 사용 위해 추가하였습니다.
 - H2 DB, MyBatis : DB 사용을 위해 추가하였스니다.
+- AssertJ, Slf4j : DAO 및 서비스 테스트를 위해 추가하였습니다.
 
 ### 고민했던 점, 어려웠던 점
 
