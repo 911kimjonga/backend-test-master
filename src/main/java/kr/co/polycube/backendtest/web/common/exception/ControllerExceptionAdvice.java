@@ -34,6 +34,7 @@ public class ControllerExceptionAdvice {
 
     /**
      * 존재하지 않는 API 호출 시 예외 처리
+     *
      * @param ex 예외 요소
      * @return 예외 메세지
      */
@@ -46,6 +47,7 @@ public class ControllerExceptionAdvice {
 
     /**
      * 서버 오류 시 예외 처리
+     *
      * @param ex 예외 요소
      * @return 예외 메세지
      */

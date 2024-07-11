@@ -3,7 +3,6 @@ package kr.co.polycube.backendtest.domain.lotto.service;
 import kr.co.polycube.backendtest.domain.lotto.dto.Lotto;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Lotto 서비스 인터페이스

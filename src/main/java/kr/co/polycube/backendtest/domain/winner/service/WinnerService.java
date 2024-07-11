@@ -12,7 +12,7 @@ import kr.co.polycube.backendtest.domain.winner.dto.Winner;
 public interface WinnerService {
 
     /**
-     * 당첨자 발생 시 등록
+     * 당첨자 발생 시 당첨 정보 등록
      * 
      * @param winner Winner 객체
      */

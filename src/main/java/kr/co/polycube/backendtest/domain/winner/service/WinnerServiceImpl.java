@@ -20,7 +20,7 @@ public class WinnerServiceImpl implements WinnerService {
     private final WinnerMapper winnerMapper;
 
     /**
-     * 당첨자 발생 시 등록 구현 메소드
+     * 당첨자 발생 시 당첨 정보 등록 구현 메소드
      * 
      * @param winner Winner 객체
      */

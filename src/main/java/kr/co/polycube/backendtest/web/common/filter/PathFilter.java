@@ -1,4 +1,4 @@
-package kr.co.polycube.backendtest.web.common.Filter;
+package kr.co.polycube.backendtest.web.common.filter;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

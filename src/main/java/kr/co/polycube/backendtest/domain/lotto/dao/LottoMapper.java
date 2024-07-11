@@ -1,7 +1,6 @@
 package kr.co.polycube.backendtest.domain.lotto.dao;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;

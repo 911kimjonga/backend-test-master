@@ -10,7 +10,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -31,7 +30,7 @@ class UserControllerTest {
     /**
      * User 등록 요청 테스트 메소드
      *
-     * @throws Exception 예외
+     * @throws Exception 예외 객체
      */
     @Test
     @Transactional
@@ -50,7 +49,7 @@ class UserControllerTest {
     /**
      * User 조회 요청 테스트 메소드
      *
-     * @throws Exception 예외
+     * @throws Exception 예외 객체
      */
     @Test
     void checkTest() throws Exception {
@@ -68,7 +67,7 @@ class UserControllerTest {
     /**
      * User 수정 요청 테스트 메소드
      *
-     * @throws Exception 예외
+     * @throws Exception 예외 객체
      */
     @Test
     @Transactional
@@ -89,7 +88,7 @@ class UserControllerTest {
     /**
      * URL 필터 적용 여부 요청 테스트
      * 
-     * @throws Exception 예외
+     * @throws Exception 예외 객체
      */
     @Test
     @Transactional

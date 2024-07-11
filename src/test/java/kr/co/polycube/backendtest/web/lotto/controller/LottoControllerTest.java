@@ -9,7 +9,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -30,7 +29,7 @@ class LottoControllerTest {
     /**
      * Lotto 생성 컨트롤러 테스트 메소드
      *
-     * @throws Exception 예외
+     * @throws Exception 예외 객체
      */
     @Test
     void drawTest() throws Exception {

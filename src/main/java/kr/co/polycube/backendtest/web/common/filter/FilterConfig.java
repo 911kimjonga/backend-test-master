@@ -1,4 +1,4 @@
-package kr.co.polycube.backendtest.web.common.Filter;
+package kr.co.polycube.backendtest.web.common.filter;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
